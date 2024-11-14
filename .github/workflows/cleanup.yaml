@@ -1,0 +1,30 @@
+
+name: "Clean up deployment"
+on:
+  pull_request:
+    branches:
+      - main
+    types: closed
+    paths-ignore:
+      - '**/README.md'
+      - 'kustomize/**'
+      - '.github/workflows/kustomize-build-ci.yaml'
+      - 'terraform/**'
+      - '.github/workflows/terraform-validate-ci.yaml'
+jobs:
+  cleanup-namespace:
+    runs-on: [self-hosted, is-enabled]
+    steps:
+      - name: Delete PR namespace in staging cluster
+        if: ${{ always() }}
+        timeout-minutes: 20
+        run: |
+          gcloud container clusters get-credentials $PR_CLUSTER \
+              --region $REGION --project $PROJECT_ID
+          NAMESPACE="pr${PR_NUMBER}"
+          kubectl delete namespace $NAMESPACE
+        env:
+          PROJECT_ID: "online-boutique-ci"
+          PR_CLUSTER: "prs-gke-cluster"
+          REGION: "us-central1"
+          PR_NUMBER: ${{ github.event.number }}

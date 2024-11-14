@@ -1,0 +1,23 @@
+
+allowedCopyrightHolders:
+  - 'Google LLC'
+
+allowedLicenses:
+  - 'Apache-2.0'
+
+sourceFileExtensions:
+  - 'cs'
+  - 'css'
+  - 'Dockerfile'
+  - 'dockerignore'
+  - 'gitignore'
+  - 'go'
+  - 'html'
+  - 'java'
+  - 'js'
+  - 'proto'
+  - 'py'
+  - 'sh'
+  - 'tf'
+  - 'yaml'
+  - 'yml'

@@ -1,0 +1,8 @@
+
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: online-boutique-certificate
+spec:
+  domains:
+    - cymbal-shops.retail.cymbal.dev

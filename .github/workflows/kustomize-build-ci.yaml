@@ -1,0 +1,33 @@
+
+
+name: kustomize-build-ci
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'kustomize/**'
+      - '.github/workflows/kustomize-build-ci.yaml'
+  pull_request:
+    paths:
+      - 'kustomize/**'
+      - '.github/workflows/kustomize-build-ci.yaml'
+jobs:
+  kustomize-build-ci:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: kustomize build base
+        run: |
+          cd kustomize/
+          kubectl kustomize .
+      # Build the different combinations of Kustomize components found in kustomize/tests.
+      - name: kustomize build tests
+        run: |
+          cd kustomize/tests
+          KUSTOMIZE_TESTS_SUBFOLDERS=$(ls -d */)
+          for test in $KUSTOMIZE_TESTS_SUBFOLDERS;
+          do
+              echo "## kustomize build for " + $test
+              kustomize build $test
+          done

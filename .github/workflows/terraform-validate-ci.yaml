@@ -1,0 +1,23 @@
+
+name: terraform-validate-ci
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/terraform-validate-ci.yaml'
+  pull_request:
+    paths:
+      - 'terraform/**'
+      - '.github/workflows/terraform-validate-ci.yaml'
+jobs:
+  terraform-validate-ci:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: terraform init & validate
+        run: |
+          cd terraform/
+          terraform init -backend=false
+          terraform validate
