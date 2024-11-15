@@ -3,7 +3,7 @@
 
     <div {{ with $.platform_css }} class="{{.}}" {{ end }}>
         <span class="platform-flag">
-            {{$.platform_name}}
+            Berat
         </span>
     </div>
 
@@ -11,9 +11,9 @@
 
         {{ if eq (len $.items) 0 }}
         <section class="empty-cart-section">
-            <h3>Your shopping cart is empty!</h3>
-            <p>Items you add to your shopping cart will appear here.</p>
-            <a class="cymbal-button-primary" href="{{ $.baseUrl }}/" role="button">Continue Shopping</a>
+            <h3>Alışveriş sepetiniz boş!</h3>
+            <p>Alışveriş sepetinize eklediğiniz ürünler burada görünecektir.</p>
+            <a class="cymbal-button-primary" href="{{ $.baseUrl }}/" role="button">Alışverişe Devam Et</a>
         </section>
         {{ else }}
         <section class="container">
