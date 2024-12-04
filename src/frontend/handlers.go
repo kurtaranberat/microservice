@@ -75,14 +75,12 @@ func (fe *frontendServer) homeHandler(w http.ResponseWriter, r *http.Request) {
 		ps[i] = productView{p, price}
 	}
 
-	// Set ENV_PLATFORM (default to local if not set; use env var if set; otherwise detect GCP, which overrides env)_
 	var env = os.Getenv("ENV_PLATFORM")
-	// Only override from env variable if set + valid env
 	if env == "" || stringinSlice(validEnvs, env) == false {
 		fmt.Println("env platform is either empty or invalid")
 		env = "local"
 	}
-	// Autodetect GCP
+
 	addrs, err := net.LookupHost("metadata.google.internal.")
 	if err == nil && len(addrs) >= 0 {
 		log.Debugf("Detected Google metadata server: %v, setting ENV_PLATFORM to GCP.", addrs)
@@ -582,11 +580,11 @@ func cartIDs(c []*pb.CartItem) []string {
 
 // get total # of items in cart
 func cartSize(c []*pb.CartItem) int {
-	cartSize := 0
+	totalItems := 0
 	for _, item := range c {
-		cartSize += int(item.GetQuantity())
+		totalItems += int(item.GetQuantity())
 	}
-	return cartSize
+	return totalItems
 }
 
 func renderMoney(money pb.Money) string {
