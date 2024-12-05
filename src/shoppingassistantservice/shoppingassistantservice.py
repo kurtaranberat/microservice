@@ -33,7 +33,6 @@ engine = AlloyDBEngine.from_instance(
     password=PGPASSWORD
 )
 
-# Create a synchronous connection to our vectorstore
 vectorstore = AlloyDBVectorStore.create_sync(
     engine=engine,
     table_name=ALLOYDB_TABLE_NAME,

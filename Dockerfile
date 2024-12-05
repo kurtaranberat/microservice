@@ -50,7 +50,6 @@ RUN pip install -r requirements.txt
 WORKDIR C:/app/src/adservice
 RUN ./gradlew build
 
-# Create start script
 WORKDIR C:/app
 COPY start.ps1 .
 
