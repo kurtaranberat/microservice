@@ -14,8 +14,6 @@ var log *logrus.Logger
 
 func init() {
 	initializeLogger()
-	// Use a goroutine to ensure loadDeploymentDetails()'s GCP API
-	// calls don't block non-GCP deployments. See issue #685.
 	go loadDeploymentDetails()
 }
 

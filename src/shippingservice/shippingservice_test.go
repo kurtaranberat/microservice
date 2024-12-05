@@ -8,11 +8,9 @@ import (
 	pb "github.com/GoogleCloudPlatform/microservices-demo/src/shippingservice/genproto"
 )
 
-// TestGetQuote is a basic check on the GetQuote RPC service.
 func TestGetQuote(t *testing.T) {
 	s := server{}
 
-	// A basic test case to test logic and protobuf interactions.
 	req := &pb.GetQuoteRequest{
 		Address: &pb.Address{
 			StreetAddress: "Muffin Man",
@@ -41,11 +39,9 @@ func TestGetQuote(t *testing.T) {
 	}
 }
 
-// TestShipOrder is a basic check on the ShipOrder RPC service.
 func TestShipOrder(t *testing.T) {
 	s := server{}
 
-	// A basic test case to test logic and protobuf interactions.
 	req := &pb.ShipOrderRequest{
 		Address: &pb.Address{
 			StreetAddress: "Muffin Man",
@@ -69,7 +65,7 @@ func TestShipOrder(t *testing.T) {
 	if err != nil {
 		t.Errorf("TestShipOrder (%v) failed", err)
 	}
-	// @todo improve quality of this test to check for a pattern such as '[A-Z]{2}-\d+-\d+'.
+
 	if len(res.TrackingId) != 18 {
 		t.Errorf("TestShipOrder: Tracking ID is malformed - has %d characters, %d expected", len(res.TrackingId), 18)
 	}
