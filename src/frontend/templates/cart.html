@@ -23,15 +23,15 @@
 
                     <div class="row mb-3 py-2">
                         <div class="col-4 pl-md-0">
-                            <h3>Cart ({{ $.cart_size }})</h3>
+                            <h3>Sepet ({{ $.cart_size }})</h3>
                         </div>
                         <div class="col-8 pr-md-0 text-right">
                             <form method="POST" action="{{ $.baseUrl }}/cart/empty">
                                 <button class="cymbal-button-secondary cart-summary-empty-cart-button" type="submit">
-                                    Empty Cart
+                                    Sepeti Boşalt
                                 </button>
                                 <a class="cymbal-button-primary" href="{{ $.baseUrl }}/" role="button">
-                                    Continue Shopping
+                                    Alışverişe Devam Et
                                 </a>
                             </form>
                         </div>
@@ -52,12 +52,12 @@
                             </div>
                             <div class="row cart-summary-item-row-item-id-row">
                                 <div class="col">
-                                    SKU #{{ .Item.Id }}
+                                    Stok Kodu #{{ .Item.Id }}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    Quantity: {{ .Quantity }}
+                                    Adet: {{ .Quantity }}
                                 </div>
                                 <div class="col pr-md-0 text-right">
                                     <strong>
@@ -70,12 +70,12 @@
                     {{ end }}
 
                     <div class="row cart-summary-shipping-row">
-                        <div class="col pl-md-0">Shipping</div>
+                        <div class="col pl-md-0">Kargo</div>
                         <div class="col pr-md-0 text-right">{{ renderMoney .shipping_cost }}</div>
                     </div>
 
                     <div class="row cart-summary-total-row">
-                        <div class="col pl-md-0">Total</div>
+                        <div class="col pl-md-0">Toplam</div>
                         <div class="col pr-md-0 text-right">{{ renderMoney .total_cost }}</div>
                     </div>
 
@@ -87,13 +87,13 @@
 
                         <div class="row">
                             <div class="col">
-                                <h3>Shipping Address</h3>
+                                <h3>Teslimat Adresi</h3>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col cymbal-form-field">
-                                <label for="email">E-mail Address</label>
+                                <label for="email">E-posta Adresi</label>
                                 <input type="email" id="email"
                                     name="email" value="someone@example.com" required>
                             </div>
@@ -101,7 +101,7 @@
 
                         <div class="form-row">
                             <div class="col cymbal-form-field">
-                                <label for="street_address">Street Address</label>
+                                <label for="street_address">Adres</label>
                                 <input type="text" name="street_address"
                                     id="street_address" value="1600 Amphitheatre Parkway" required>
                             </div>
@@ -109,7 +109,7 @@
 
                         <div class="form-row">
                             <div class="col cymbal-form-field">
-                                <label for="zip_code">Zip Code</label>
+                                <label for="zip_code">Posta Kodu</label>
                                 <input type="text"
                                     name="zip_code" id="zip_code" value="94043" required pattern="\d{4,5}">
                             </div>
@@ -117,7 +117,7 @@
 
                         <div class="form-row">
                             <div class="col cymbal-form-field">
-                                <label for="city">City</label>
+                                <label for="city">Şehir</label>
                                 <input type="text" name="city" id="city"
                                     value="Mountain View" required>
                                 </div>
@@ -125,27 +125,27 @@
 
                         <div class="form-row">
                             <div class="col-md-5 cymbal-form-field">
-                                <label for="state">State</label>
+                                <label for="state">Eyalet</label>
                                 <input type="text" name="state" id="state"
                                     value="CA" required>
                             </div>
                             <div class="col-md-7 cymbal-form-field">
-                                <label for="country">Country</label>
+                                <label for="country">Ülke</label>
                                 <input type="text" id="country"
-                                    placeholder="Country Name"
+                                    placeholder="Ülke Adı"
                                     name="country" value="United States" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
-                                <h3 class="payment-method-heading">Payment Method</h3>
+                                <h3 class="payment-method-heading">Ödeme Yöntemi</h3>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col cymbal-form-field">
-                                <label for="credit_card_number">Credit Card Number</label>
+                                <label for="credit_card_number">Kredi Kartı Numarası</label>
                                 <input type="text" id="credit_card_number"
                                     name="credit_card_number"
                                     placeholder="0000000000000000"
@@ -156,25 +156,25 @@
 
                         <div class="form-row">
                             <div class="col-md-5 cymbal-form-field">
-                                <label for="credit_card_expiration_month">Month</label>
+                                <label for="credit_card_expiration_month">Ay</label>
                                 <select name="credit_card_expiration_month" id="credit_card_expiration_month">
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">January</option>
+                                    <option value="1">Ocak</option>
+                                    <option value="2">Şubat</option>
+                                    <option value="3">Mart</option>
+                                    <option value="4">Nisan</option>
+                                    <option value="5">Mayıs</option>
+                                    <option value="6">Haziran</option>
+                                    <option value="7">Temmuz</option>
+                                    <option value="8">Ağustos</option>
+                                    <option value="9">Eylül</option>
+                                    <option value="10">Ekim</option>
+                                    <option value="11">Kasım</option>
+                                    <option value="12">Aralık</option>
                                 </select>
                                 <img src="{{ $.baseUrl }}/static/icons/Hipster_DownArrow.svg" alt="" class="cymbal-dropdown-chevron">
                             </div>
                             <div class="col-md-4 cymbal-form-field">
-                                    <label for="credit_card_expiration_year">Year</label>
+                                    <label for="credit_card_expiration_year">Yıl</label>
                                     <select name="credit_card_expiration_year" id="credit_card_expiration_year">
                                     {{ range $i, $y := $.expiration_years}}<option value="{{$y}}"
                                         {{if eq $i 1 -}}
@@ -194,7 +194,7 @@
                         <div class="form-row justify-content-center">
                             <div class="col text-center">
                                 <button class="cymbal-button-primary" type="submit">
-                                    Place Order
+                                    Siparişi Tamamla
                                 </button>
                             </div>
                         </div>

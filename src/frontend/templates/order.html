@@ -1,4 +1,3 @@
-
 {{ define "order" }}
 
     {{ template "header" . }}
@@ -15,16 +14,16 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <h3>
-                        Your order is complete!
+                        Siparişiniz tamamlandı!
                     </h3>
                 </div>
                 <div class="col-12 text-center">
-                    <p>We've sent you a confirmation email.</p>
+                    <p>Size bir onay e-postası gönderdik.</p>
                 </div>
             </div>
             <div class="row border-bottom-solid padding-y-24">
                 <div class="col-6 pl-md-0">
-                    Confirmation #
+                    Onay #
                 </div>
                 <div class="col-6 pr-md-0 text-right">
                     {{.order.OrderId}}
@@ -32,7 +31,7 @@
             </div>
             <div class="row border-bottom-solid padding-y-24">
                 <div class="col-6 pl-md-0">
-                    Tracking #
+                    Takip #
                 </div>
                 <div class="col-6 pr-md-0 text-right">
                     {{.order.ShippingTrackingId}}
@@ -40,7 +39,7 @@
             </div>
             <div class="row padding-y-24">
                 <div class="col-6 pl-md-0">
-                    Total Paid
+                    Ödenen Toplam
                 </div>
                 <div class="col-6 pr-md-0 text-right">
                     {{renderMoney .total_paid}}
@@ -49,7 +48,7 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <a class="cymbal-button-primary" href="{{ $.baseUrl }}/" role="button">
-                        Continue Shopping
+                        Alışverişe Devam Et
                     </a>
                 </div>
             </div>
@@ -62,4 +61,4 @@
     </main>
 
     {{ template "footer" . }}
-    {{ end }}
+{{ end }}
