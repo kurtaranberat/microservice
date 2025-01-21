@@ -3,25 +3,7 @@
 <footer class="py-5">
     <div class="footer-top">
         <div class="container footer-social">
-            <p class="footer-text">
-                <br/>
-                <small>
-                    {{ if $.deploymentDetails }}
-                        {{ if index .deploymentDetails "CLUSTERNAME" }}
-                        <b>Küme: </b>{{ index .deploymentDetails "CLUSTERNAME" }}<br/>
-                        {{ end }}
-                        {{ if index .deploymentDetails "ZONE" }}
-                        <b>Bölge: </b>{{ index .deploymentDetails "ZONE" }}<br/>
-                        {{ end }} 
-                        {{ if index .deploymentDetails "HOSTNAME" }}
-                        <b>Pod: </b>{{ index .deploymentDetails "HOSTNAME" }}
-                        {{ end }}
-                    {{ else }}
-                    Dağıtım detayları henüz yüklenmedi. 
-                    Lütfen bu sayfayı yenilemeyi deneyin.
-                    {{ end }}
-                </small>                
-            </p>
+           
         </div>
     </div>
 </footer>
